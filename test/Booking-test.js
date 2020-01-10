@@ -49,8 +49,8 @@ describe('Booking Class', function() {
   })
 
   describe('Method Tests', function() {
-    it('', function() {
-      expect(booking.).to.equal();
-    })
+    // it('', function() {
+    //   expect(booking.).to.equal();
+    // })
   })
 });
