@@ -17,7 +17,7 @@ describe('Room Class', function() {
       });
   });
 
-  describe('Property Tests', function() {
+  describe('Basic Tests', function() {
     it('should be a function', function() {
       expect(Room).to.be.a('function');
     });
@@ -25,7 +25,9 @@ describe('Room Class', function() {
     it('should be an instance of the Room class', function() {
       expect(room).to.be.an.instanceOf(Room);
     });
+  })
 
+  describe('Property Tests', function() {
     it('should have a room number', function() {
       expect(room.roomNumber).to.equal(1);
     });
@@ -52,6 +54,6 @@ describe('Room Class', function() {
   })
 
   describe('Method Tests', function() {
-    
+
   })
 });
