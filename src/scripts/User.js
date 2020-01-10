@@ -1,7 +1,7 @@
 //User Parent Class
 class User {
-  constructor() {
-    this.username = 'customer';
+  constructor(obj) {
+    this.userName = obj.id > 0 ? `customer${obj.id}` : 'manager';
     this.password = 'overlook2019';
   }
 
@@ -14,7 +14,7 @@ class User {
 //Customer Class Extend
 class Customer extends User {
   constructor(obj) {
-    super();
+    super(obj);
     this.id = obj.id;
     this.name = obj.name;
   }
@@ -22,8 +22,8 @@ class Customer extends User {
 
 //Manager Class Extend
 class Manager extends User {
-  constructor() {
-    super();
+  constructor(obj) {
+    super(obj);
   }
 }
 
