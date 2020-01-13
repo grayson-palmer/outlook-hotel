@@ -54,6 +54,6 @@ describe('Room Class', function() {
   })
 
   describe('Method Tests', function() {
-
+    
   })
 });
