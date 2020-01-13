@@ -1,0 +1,59 @@
+.container {
+  background: linear-gradient(to right, $primary-color, $secondary-color);
+  color: $primary-color;
+  height: 60vh;
+  padding: .5em;
+  position: relative;
+  width: 30%;
+}
+
+.content {
+  @include columnFlexCenter();
+  background-color: $secondary-background;
+  color: $primary-color;
+  height: 100%;
+  padding: 1em;
+  h2 {
+    font-size: 1em;
+    margin-top: 1em;
+  }
+}
+
+.login-container {
+  display: none;
+}
+
+.login-form {
+  @include columnFlexCenter();
+  font-size: .75em;
+}
+
+.username-input,
+.password-input {
+  margin: .5em 0;
+  width: 100%;
+}
+
+.text-input {
+  font-family: $primary-font;
+  font-size: .75em;
+  padding: .25em;
+  width: 100%;
+}
+
+.submit-button {
+  background-color: lighten($secondary-color, 20%);
+  border: none;
+  cursor: pointer;
+  font-family: $primary-font;
+  font-size: 1em;
+  margin: 1em;
+  padding: .5em;
+  transition: background-color .5s linear;
+  width: 100%;
+  &:hover {
+    background-color: $primary-color;
+    transition: background-color .5s linear;
+  }
+}
+
