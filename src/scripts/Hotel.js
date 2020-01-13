@@ -5,6 +5,7 @@ class Hotel {
   constructor() {
     this.guests = [];
     this.rooms = [];
+    this.roomTypes = [];
     this.bookings = [];
     this.currentDate = '';
     this.manager = 'manager';
@@ -25,6 +26,28 @@ class Hotel {
 
   findCurrentDate() {
     this.currentDate = moment(Date.now()).format('YYYY/MM/DD');
+  }
+
+  findRoomTypes() {
+    return this.rooms.reduce((acc, room) => {
+      if (!acc.includes(room.roomType)) {
+        acc.push(room.roomType);
+      }
+      return acc;
+    }, [])
+    
+  }
+  
+  changeRoomTypeCase() {
+    let typeList = this.findRoomTypes();
+    let caseTypeList = [];
+    typeList.forEach(type => {
+      type = type.replace(/\b[a-z]/g, (type) => {
+        return type.toUpperCase();
+      });
+      caseTypeList.push(type);
+    })
+    return caseTypeList
   }
 
   calculateNumberAvailableRooms() {
