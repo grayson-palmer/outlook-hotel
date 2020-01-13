@@ -1,6 +1,30 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+@import 'variables';
+@import 'login';
+@import 'dashboard';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
 
 body {
-  background-color: $primary-background;
+  align-items: center;
+  background: center / cover no-repeat url('../images/deco-background.jpg');
+  display: flex;
+  font-family: $primary-font;
+  font-size: 2rem;
+  height: 100vh;
+  justify-content: center;
 }
+
+main {
+  @include columnFlexCenter();
+  width: 100%;
+}
+
+
+
