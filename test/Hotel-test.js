@@ -81,6 +81,14 @@ describe('Hotel Class', function() {
       hotel.loadGuests(userData);
     })
 
+    it('should return a list of all room types', function() {
+      expect(hotel.findRoomTypes()).to.deep.equal([ 'residential suite', 'suite', 'single room', 'junior suite' ])
+    })
+
+    it('should modify the array to proper casing', function() {
+      expect(hotel.changeRoomTypeCase()).to.deep.equal([ 'Residential Suite', 'Suite', 'Single Room', 'Junior Suite' ])
+    })
+
     it('should calculate the number of available rooms', function() {
       let availableRooms = hotel.calculateNumberAvailableRooms();
       expect(availableRooms).to.equal(982);
