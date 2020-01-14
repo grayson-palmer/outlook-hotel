@@ -37,6 +37,12 @@ class Hotel {
     }, [])
     
   }
+
+  findAvailableRooms(date) {
+    let bookedRooms = this.bookings.filter(booking => booking.date === date).map(room => room.roomNumber);
+    let availableRooms = this.rooms.filter(room => !bookedRooms.includes(room.roomNumber));
+    return availableRooms;
+  }
   
   changeRoomTypeCase() {
     let typeList = this.findRoomTypes();
