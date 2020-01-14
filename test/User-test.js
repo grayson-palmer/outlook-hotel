@@ -65,9 +65,5 @@ describe('User Class', function() {
     it('should be able to sort the reservations', function() {
       //not sure how to test this...
     })
-
-    // it('should update the amount spent with a total of all previous bookings', function() {
-    //   user.calculateAmountSpent();
-    // })
   })
 })
