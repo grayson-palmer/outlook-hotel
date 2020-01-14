@@ -1,34 +1,34 @@
 //User Parent Class
 class User {
   constructor(obj) {
-    this.userName = obj.id > 0 ? `customer${obj.id}` : 'manager';
-    this.password = 'overlook2019';
+    this.id = obj.id
+    this.name = obj.name
+    this.amountSpent = 0;
+    this.allReservations = [];
   }
 
-  loginUser() {
+  makeReservation(booking) {
+    this.allReservations.push(booking);
+  }
+
+  findReservations(bookings) {
+    let userReservations = bookings.filter(booking => {
+      return booking.userId === this.id;
+    })
+    this.allReservations.push(userReservations);
+    // Not functionally sorting date currently
+    // this.allReservations.sort((a, b) => {
+    //   a = new Date(a.date);
+    //   b = new Date(b.date); 
+    //   return b.date - a.date;
+    // });
+  }
+
+  calculateAmountSpent() {
 
   }
 }
 
 
-//Customer Class Extend
-class Customer extends User {
-  constructor(obj) {
-    super(obj);
-    this.id = obj.id;
-    this.name = obj.name;
-  }
-}
 
-//Manager Class Extend
-class Manager extends User {
-  constructor(obj) {
-    super(obj);
-  }
-}
-
-module.exports = {
-  User: User,
-  Customer: Customer,
-  Manager: Manager
-};
+export default User;
