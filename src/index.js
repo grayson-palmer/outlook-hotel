@@ -82,6 +82,7 @@ function checkLogin() {
   } else if (userIds.find(i => `customer${i}` === $('#username').val()) && $('#password').val() === 'overlook2019') {
     currentUser = hotel.guests.find(g => (`customer${g.id}`) === $('#username').val())
     currentUser.findReservations(hotel.bookings);
+    currentUser.sortReservations();
     domUpdates.showDashboard('customer', currentUser);
   } else {
     alert('The username or password entered does not match our system. Please try again.');
