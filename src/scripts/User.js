@@ -25,13 +25,6 @@ class User {
     });
     this.allReservations.sort((a, b) => b.numDate - a.numDate);
   }
-
-  // calculateAmountSpent() {
-  //   this.allReservations.reduce((sum, res) => {
-  //     sum += res.
-  //     return sum;
-  //   }, 0)
-  // }
 }
 
 
