@@ -1,5 +1,6 @@
 .dashboard {
-  display: grid;
+  // display: grid;
+  display: none;
   grid-template-columns: 90px 1fr 2fr 1fr 90px;
   grid-template-rows: 12vh 10vh 65vh 13vh;
   width: 100%;
