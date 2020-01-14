@@ -83,11 +83,25 @@ function checkLogin() {
     currentUser = hotel.guests.find(g => (`customer${g.id}`) === $('#username').val())
     currentUser.findReservations(hotel.bookings);
     currentUser.sortReservations();
-    domUpdates.showDashboard('customer', currentUser);
+    domUpdates.showDashboard('customer', currentUser, hotel);
+    calculateCustomerAmountSpent();
   } else {
     alert('The username or password entered does not match our system. Please try again.');
   }
 }
+
+const calculateCustomerAmountSpent = () => {
+  let customerSpent = currentUser.allReservations.reduce((sum, res) => {
+    if (Number(res.date.split('/').join('')) < Number(hotel.currentDate.split('/').join(''))) {
+      let room = hotel.rooms.find(room => room.roomNumber === res.roomNumber);
+      sum += room.costPerNight;
+    }
+    return sum;
+  }, 0)
+  domUpdates.customerDashboardFinancialInfo(customerSpent);
+}
+
+
 
 
 
