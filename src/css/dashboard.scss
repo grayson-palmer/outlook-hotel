@@ -30,33 +30,49 @@
   grid-column-start: 2;
   grid-row: 3;
   width: 100%;
+  .past-bookings,
+  .current-bookings {
+    margin: .5em;
+    width: 100%;
+  }
+  .booking {
+    @include columnFlexCenter();
+    p {
+      border: .25em solid $primary-color;
+      font-size: .5em;
+      padding: .25em;
+      margin: .25em;
+      width: 100%;
+    }
+  }
 }
 
 .center-dashboard-container {
   grid-column-start: 3;
   grid-row: 3;
   width: 100%;
+  .book-room-form {
+    @include columnFlexCenter();
+  }
+  .available-rooms-list {
+    display: flex;
+    flex-flow: row wrap;
+    height: 43vh;
+    justify-content: flex-start;
+    margin: .25em;
+    overflow: scroll;
+  }
+  .room-listing {
+    border: .25em solid $primary-color;
+    font-size: .5em;
+    margin: 1em;
+    padding: 1em;
+    width: 44%;
+  }
 }
 
 .right-dashboard-container {
   grid-column-start: 4;
   grid-row: 3;
   width: 100%;
-}
-
-.past-bookings,
-.current-bookings {
-  margin: .5em;
-  width: 100%;
-}
-
-.booking {
-  @include columnFlexCenter();
-  p {
-    border: .25em solid $primary-color;
-    font-size: .5em;
-    padding: .25em;
-    margin: .25em;
-    width: 100%;
-  }
 }
