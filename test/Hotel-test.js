@@ -101,7 +101,7 @@ describe('Hotel Class', function() {
 
     it('should calculate the revenue for todays bookings', function() {
       let revenue = hotel.calculateDailyRevenueFromRooms();
-      expect(hotel.sales).to.equal('$6,646.72');
+      expect(hotel.sales).to.equal('$6,408.65');
     })
   })
 });
