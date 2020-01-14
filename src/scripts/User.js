@@ -13,20 +13,25 @@ class User {
 
   findReservations(bookings) {
     let userReservations = bookings.filter(booking => {
-      return booking.userId === this.id;
+      return booking.userID === this.id;
     })
-    this.allReservations.push(userReservations);
-    // Not functionally sorting date currently
-    // this.allReservations.sort((a, b) => {
-    //   a = new Date(a.date);
-    //   b = new Date(b.date); 
-    //   return b.date - a.date;
-    // });
+    userReservations.forEach(res => this.allReservations.push(res));
+  }
+  
+  sortReservations() {
+    this.allReservations.map(booking => {
+      booking["numDate"] = Number(booking.date.split('/').join(''))
+      return booking
+    });
+    this.allReservations.sort((a, b) => b.numDate - a.numDate);
   }
 
-  calculateAmountSpent() {
-
-  }
+  // calculateAmountSpent() {
+  //   this.allReservations.reduce((sum, res) => {
+  //     sum += res.
+  //     return sum;
+  //   }, 0)
+  // }
 }
 
 
