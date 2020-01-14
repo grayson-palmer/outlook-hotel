@@ -78,7 +78,7 @@ function checkLogin() {
   getUserIds();
   if ($('#username').val() === 'manager' && $('#password').val() === 'overlook2019') {
     currentUser = 'manager'
-    domUpdates.showDashboard('manager');
+    domUpdates.showDashboard('manager', 'manager', hotel);
   } else if (userIds.find(i => `customer${i}` === $('#username').val()) && $('#password').val() === 'overlook2019') {
     currentUser = hotel.guests.find(g => (`customer${g.id}`) === $('#username').val())
     currentUser.findReservations(hotel.bookings);
