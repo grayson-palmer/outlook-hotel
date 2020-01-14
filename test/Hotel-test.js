@@ -81,6 +81,14 @@ describe('Hotel Class', function() {
       hotel.loadGuests(userData);
     })
 
+    it('should return a list of all room types', function() {
+      expect(hotel.findRoomTypes()).to.deep.equal([ 'residential suite', 'suite', 'single room', 'junior suite' ])
+    })
+
+    it('should modify the array to proper casing', function() {
+      expect(hotel.changeRoomTypeCase()).to.deep.equal([ 'Residential Suite', 'Suite', 'Single Room', 'Junior Suite' ])
+    })
+
     it('should calculate the number of available rooms', function() {
       let availableRooms = hotel.calculateNumberAvailableRooms();
       expect(availableRooms).to.equal(982);
@@ -93,7 +101,12 @@ describe('Hotel Class', function() {
 
     it('should calculate the revenue for todays bookings', function() {
       let revenue = hotel.calculateDailyRevenueFromRooms();
-      expect(hotel.sales).to.equal('$6,646.72');
+      expect(hotel.sales).to.equal('$6,408.65');
+    })
+
+    it('should return a list of available rooms', function() {
+      let availableRooms = hotel.findAvailableRooms();
+      expect(availableRooms.length).to.equal(6);
     })
   })
 });

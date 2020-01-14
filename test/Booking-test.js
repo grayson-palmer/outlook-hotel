@@ -32,7 +32,7 @@ describe('Booking Class', function() {
     });
 
     it('should have the ID of the customer who made the booking', function() {
-      expect(booking.userId).to.equal(9);
+      expect(booking.userID).to.equal(9);
     });
 
     it('should have the date the booking is made for', function() {

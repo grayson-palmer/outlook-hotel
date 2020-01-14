@@ -19,9 +19,9 @@
   }
 }
 
-.login-container {
-  display: none;
-}
+// .login-container {
+//   display: flex;
+// }
 
 .login-form {
   @include columnFlexCenter();
@@ -49,11 +49,11 @@
   font-size: 1em;
   margin: 1em;
   padding: .5em;
-  transition: background-color .5s linear;
+  transition: background-color .25s linear;
   width: 100%;
   &:hover {
     background-color: $primary-color;
-    transition: background-color .5s linear;
+    transition: background-color .25s linear;
   }
 }
 

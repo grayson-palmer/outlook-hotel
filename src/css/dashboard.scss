@@ -1,5 +1,6 @@
 .dashboard {
-  display: grid;
+  // display: grid;
+  display: none;
   grid-template-columns: 90px 1fr 2fr 1fr 90px;
   grid-template-rows: 12vh 10vh 65vh 13vh;
   width: 100%;
@@ -7,6 +8,7 @@
 
 .container {
   height: 100%;
+  
   .content {
     height: 100%;
     padding: .25em;
@@ -18,8 +20,10 @@
   grid-column-end: span 3;
   grid-row: 2;
   width: 100%;
+  
   .header-content {
     @include columnFlexCenter();
+  
     h2 {
       margin: 0;
     }
@@ -30,13 +34,18 @@
   grid-column-start: 2;
   grid-row: 3;
   width: 100%;
+  
   .past-bookings,
   .current-bookings {
     margin: .5em;
     width: 100%;
   }
+  
   .booking {
     @include columnFlexCenter();
+    height: 20vh;
+    overflow: scroll;
+  
     p {
       border: .25em solid $primary-color;
       font-size: .5em;
@@ -51,9 +60,11 @@
   grid-column-start: 3;
   grid-row: 3;
   width: 100%;
+  
   .book-room-form {
     @include columnFlexCenter();
   }
+
   .available-rooms-list {
     display: flex;
     flex-flow: row wrap;
@@ -62,6 +73,7 @@
     margin: .25em;
     overflow: scroll;
   }
+
   .room-listing {
     border: .25em solid $primary-color;
     font-size: .5em;
