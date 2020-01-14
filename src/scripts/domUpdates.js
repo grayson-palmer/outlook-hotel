@@ -14,7 +14,17 @@ const domUpdates = {
       this.customerDashboardPastBookings(currentUser, hotel.currentDate);
       this.customerDashboardCurrentBookings(currentUser, hotel.currentDate);
       this.customerDashboardAvailableRooms(hotel);
-    } 
+    } else {
+      $('.login-container').fadeOut(500);
+      $('.dashboard')
+        .delay(500)
+        .css("display", "grid")
+        .hide()
+        .fadeIn(500);
+      this.managerDashboardHeader();
+      this.managerDashboardRoomStats(hotel);
+      this.managerDashboardDailyRevenue(hotel);
+    }
   },
 
   customerDashboardHeader(currentUser) {
@@ -59,7 +69,35 @@ const domUpdates = {
   },
 
   customerDashboardFinancialInfo(total) {
-    $('.customer-amt-spent').text(total);
+    $('.financial').html(`
+    <h3>Amount spent: <span class="customer-amt-spent">${total}</span></h3>
+    `);
+  },
+
+  managerDashboardHeader() {
+    $('.header-content').html(`
+    <h2>Welcome, Manager</h2>
+    `)
+  },
+
+  managerDashboardRoomStats(hotel) {
+    $('.left-dashboard-content').html(`
+      <div class="past-bookings">
+        <h3>Rooms Available Today: ${hotel.findAvailableRooms(hotel.currentDate).length}</h3>
+      </div>
+      <div class="current-bookings">
+      <h3>Percentage of Occupancy Today: ${hotel.calculatePercentageRoomsBooked() + '%'}</h3>
+      </div>
+    `)
+  },
+
+  //manager make reservation
+
+  managerDashboardDailyRevenue(hotel) {
+    hotel.calculateDailyRevenueFromRooms();
+    $('.financial').html(`
+      <h3>Revenue for the Day: <span class="customer-amt-spent">${hotel.sales}</span></h3>
+    `)
   }
 }
 

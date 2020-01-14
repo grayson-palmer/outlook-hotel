@@ -40,6 +40,7 @@ class Hotel {
 
   findAvailableRooms(date) {
     let bookedRooms = this.bookings.filter(booking => booking.date === date).map(room => room.roomNumber);
+    // console.log(bookedRooms);
     let availableRooms = this.rooms.filter(room => !bookedRooms.includes(room.roomNumber));
     return availableRooms;
   }
@@ -56,23 +57,16 @@ class Hotel {
     return caseTypeList
   }
 
-  calculateNumberAvailableRooms() {
-    let bookedRooms = this.bookings.filter(booking => {
-      return booking.date === this.currentDate;
-    })
-    return this.bookings.length - bookedRooms.length;
-  }
-
   calculatePercentageRoomsBooked() {
-    let bookedRooms = this.calculateNumberAvailableRooms();
-    return Math.floor((bookedRooms / this.bookings.length) * 100);
+    let bookedRooms = this.rooms.length - this.findAvailableRooms(this.currentDate).length;
+    return Math.floor((bookedRooms / this.rooms.length) * 100);
   }
 
   calculateDailyRevenueFromRooms() {
     this.bookings.filter(booking => {
       if(booking.date === this.currentDate) {
         let roomMatch = this.rooms.find(room => {
-          return booking.roomNumber === room.number;
+          return booking.roomNumber === room.roomNumber;
         })
         this.sales += roomMatch.costPerNight;
       }
