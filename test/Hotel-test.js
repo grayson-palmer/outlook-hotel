@@ -103,5 +103,10 @@ describe('Hotel Class', function() {
       let revenue = hotel.calculateDailyRevenueFromRooms();
       expect(hotel.sales).to.equal('$6,408.65');
     })
+
+    it('should return a list of available rooms', function() {
+      let availableRooms = hotel.findAvailableRooms();
+      expect(availableRooms.length).to.equal(6);
+    })
   })
 });
