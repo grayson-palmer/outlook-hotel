@@ -6,7 +6,6 @@ chai.use(spies);
 const expect = chai.expect;
 const should = chai.should();
 
-
 import User from '../src/scripts/User';
 import userData from '../src/mock-data/users-data.js';
 import bookingData from '../src/mock-data/booking-data.js';
