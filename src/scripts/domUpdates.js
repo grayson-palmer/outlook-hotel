@@ -13,7 +13,7 @@ const domUpdates = {
       this.customerDashboardHeader(currentUser);
       this.customerDashboardPastBookings(currentUser, hotel.currentDate);
       this.customerDashboardCurrentBookings(currentUser, hotel.currentDate);
-      this.customerDashboardAvailableRooms(hotel);
+      this.customerDashboardAvailableRooms(hotel, hotel.currentDate);
     } else {
       $('.login-container').fadeOut(500);
       $('.dashboard')
@@ -52,8 +52,8 @@ const domUpdates = {
     })
   },
 
-  customerDashboardAvailableRooms(hotel) {
-    let availableRooms = hotel.findAvailableRooms(hotel.currentDate);
+  customerDashboardAvailableRooms(hotel, date) {
+    let availableRooms = hotel.findAvailableRooms(date);
     availableRooms.map(room => {
       $('.available-rooms-list').append(`
         <div class="room-listing">
@@ -70,7 +70,7 @@ const domUpdates = {
 
   customerDashboardFinancialInfo(total) {
     $('.financial').html(`
-    <h3>Amount spent: <span class="customer-amt-spent">${total}</span></h3>
+    <h3>Amount spent: <span class="customer-amt-spent">${total.toLocaleString("en-US", {style:"currency", currency:"USD"})}</span></h3>
     `);
   },
 
@@ -96,8 +96,27 @@ const domUpdates = {
   managerDashboardDailyRevenue(hotel) {
     hotel.calculateDailyRevenueFromRooms();
     $('.financial').html(`
-      <h3>Revenue for the Day: <span class="customer-amt-spent">${hotel.sales}</span></h3>
+      <h3>Revenue for the Day: <span class="customer-amt-spent">${hotel.sales.toLocaleString("en-US", {style:"currency", currency:"USD"})}</span></h3>
     `)
+  },
+
+  roomSearchUpdateDom(date, type, hotel) {
+    let availableRooms = hotel.findAvailableRooms(date);
+    if (type === 'all') {type = ['residential suite', 'suite', 'single room', 'junior suite']};
+    let filteredRooms = availableRooms.filter(room => type.includes(room.roomType));
+    $('.available-rooms-list').children().remove();
+    filteredRooms.map(room => {
+      $('.available-rooms-list').append(`
+        <div class="room-listing">
+          <p>Room Number: ${room.roomNumber}</p>
+          <p>Room Type: ${room.roomType.toUpperCase()}</p>
+          <p>Number of Beds: ${room.numBeds}</p>
+          <p>Bed Size: ${room.bedSize.toUpperCase()}</p>
+          <p>Bidet: ${room.bidet}</p>
+          <p>Cost Per Night: ${room.costPerNight.toLocaleString("en-US", {style:"currency", currency:"USD"})}</p>
+        </div>
+      `)
+    })
   }
 }
 

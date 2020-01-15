@@ -1,6 +1,6 @@
 let roomData = [
   {
-  number: 1,
+  roomNumber: 1,
   roomType: "residential suite",
   bidet: true,
   bedSize: "queen",
@@ -8,7 +8,7 @@ let roomData = [
   costPerNight: 358.4
   },
   {
-  number: 2,
+  roomNumber: 2,
   roomType: "suite",
   bidet: false,
   bedSize: "full",
@@ -16,7 +16,7 @@ let roomData = [
   costPerNight: 477.38
   },
   {
-  number: 3,
+  roomNumber: 3,
   roomType: "single room",
   bidet: false,
   bedSize: "king",
@@ -24,7 +24,7 @@ let roomData = [
   costPerNight: 491.14
   },
   {
-  number: 4,
+  roomNumber: 4,
   roomType: "single room",
   bidet: false,
   bedSize: "queen",
@@ -32,7 +32,7 @@ let roomData = [
   costPerNight: 429.44
   },
   {
-  number: 5,
+  roomNumber: 5,
   roomType: "single room",
   bidet: true,
   bedSize: "queen",
@@ -40,7 +40,7 @@ let roomData = [
   costPerNight: 340.17
   },
   {
-  number: 6,
+  roomNumber: 6,
   roomType: "junior suite",
   bidet: true,
   bedSize: "queen",
@@ -48,7 +48,7 @@ let roomData = [
   costPerNight: 397.02
   },
   {
-  number: 7,
+  roomNumber: 7,
   roomType: "single room",
   bidet: false,
   bedSize: "queen",
@@ -56,7 +56,7 @@ let roomData = [
   costPerNight: 231.46
   },
   {
-  number: 8,
+  roomNumber: 8,
   roomType: "junior suite",
   bidet: false,
   bedSize: "king",
@@ -64,7 +64,7 @@ let roomData = [
   costPerNight: 261.26
   },
   {
-  number: 9,
+  roomNumber: 9,
   roomType: "single room",
   bidet: true,
   bedSize: "queen",
@@ -72,7 +72,7 @@ let roomData = [
   costPerNight: 200.39
   },
   {
-  number: 10,
+  roomNumber: 10,
   roomType: "suite",
   bidet: false,
   bedSize: "twin",
@@ -80,7 +80,7 @@ let roomData = [
   costPerNight: 497.64
   },
   {
-  number: 11,
+  roomNumber: 11,
   roomType: "single room",
   bidet: true,
   bedSize: "twin",
@@ -88,7 +88,7 @@ let roomData = [
   costPerNight: 207.24
   },
   {
-  number: 12,
+  roomNumber: 12,
   roomType: "single room",
   bidet: false,
   bedSize: "twin",
@@ -96,7 +96,7 @@ let roomData = [
   costPerNight: 172.09
   },
   {
-  number: 13,
+  roomNumber: 13,
   roomType: "single room",
   bidet: false,
   bedSize: "queen",
@@ -104,7 +104,7 @@ let roomData = [
   costPerNight: 423.92
   },
   {
-  number: 14,
+  roomNumber: 14,
   roomType: "residential suite",
   bidet: false,
   bedSize: "twin",
@@ -112,7 +112,7 @@ let roomData = [
   costPerNight: 457.88
   },
   {
-  number: 15,
+  roomNumber: 15,
   roomType: "residential suite",
   bidet: false,
   bedSize: "full",
@@ -120,7 +120,7 @@ let roomData = [
   costPerNight: 294.56
   },
   {
-  number: 16,
+  roomNumber: 16,
   roomType: "single room",
   bidet: false,
   bedSize: "full",
@@ -128,7 +128,7 @@ let roomData = [
   costPerNight: 325.6
   },
   {
-  number: 17,
+  roomNumber: 17,
   roomType: "junior suite",
   bidet: false,
   bedSize: "twin",
@@ -136,7 +136,7 @@ let roomData = [
   costPerNight: 328.15
   },
   {
-  number: 18,
+  roomNumber: 18,
   roomType: "junior suite",
   bidet: false,
   bedSize: "king",
@@ -144,7 +144,7 @@ let roomData = [
   costPerNight: 496.41
   },
   {
-  number: 19,
+  roomNumber: 19,
   roomType: "single room",
   bidet: false,
   bedSize: "queen",
@@ -152,7 +152,7 @@ let roomData = [
   costPerNight: 374.67
   },
   {
-  number: 20,
+  roomNumber: 20,
   roomType: "residential suite",
   bidet: false,
   bedSize: "queen",
@@ -160,7 +160,7 @@ let roomData = [
   costPerNight: 343.95
   },
   {
-  number: 21,
+  roomNumber: 21,
   roomType: "single room",
   bidet: false,
   bedSize: "full",
@@ -168,7 +168,7 @@ let roomData = [
   costPerNight: 429.32
   },
   {
-  number: 22,
+  roomNumber: 22,
   roomType: "single room",
   bidet: false,
   bedSize: "full",
@@ -176,7 +176,7 @@ let roomData = [
   costPerNight: 350.31
   },
   {
-  number: 23,
+  roomNumber: 23,
   roomType: "residential suite",
   bidet: false,
   bedSize: "queen",
@@ -184,7 +184,7 @@ let roomData = [
   costPerNight: 176.36
   },
   {
-  number: 24,
+  roomNumber: 24,
   roomType: "suite",
   bidet: false,
   bedSize: "queen",
@@ -192,7 +192,7 @@ let roomData = [
   costPerNight: 327.24
   },
   {
-  number: 25,
+  roomNumber: 25,
   roomType: "single room",
   bidet: true,
   bedSize: "queen",
