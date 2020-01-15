@@ -43,15 +43,21 @@
           <div class="content center-dashboard-content">
             <div class="book-room-container">
               <form class="book-room-form">
-                <label for="date">Select a date:</label>
-                <input type="date" id="date">
-                <label for="room-type">Select a room type:</label>
-                <select name="type-of-room" class="room-type" id="room-type">
-                  <option value="residential suite">Residential Suite</option>
-                  <option value="suite">Suite</option>
-                  <option value="single room">Single Room</option>
-                  <option value="junior suite">Junior Suite</option>
-                </select>
+                <div>
+                  <label for="date" required>Select a date<span class="required">*</span>:</label>
+                  <input type="date" id="date">
+                </div>
+                <div>
+                  <label for="room-type">Select a room type:</label>
+                  <select name="type-of-room" class="room-type" id="room-type">
+                    <option value="all">All</option>
+                    <option value="residential suite">Residential Suite</option>
+                    <option value="suite">Suite</option>
+                    <option value="single room">Single Room</option>
+                    <option value="junior suite">Junior Suite</option>
+                  </select>
+                </div>
+                <button type="button" class="search-button">Search Availability</button>
               </form>
               <div class="available-rooms-list"></div>
             </div>
