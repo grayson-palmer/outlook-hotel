@@ -40,19 +40,19 @@
     margin: .5em;
     width: 100%;
   }
-  
-  .booking {
-    @include columnFlexCenter();
-    height: 20vh;
-    overflow: scroll;
-  
-    p {
-      border: .25em solid $primary-color;
-      font-size: .5em;
-      padding: .25em;
-      margin: .25em;
-      width: 100%;
-    }
+}
+
+.booking {
+  @include columnFlexCenter();
+  height: 20vh;
+  overflow: scroll;
+
+  p {
+    border: .25em solid $primary-color;
+    font-size: .5em;
+    padding: .25em;
+    margin: .25em;
+    width: 100%;
   }
 }
 
@@ -68,29 +68,7 @@
   .book-room-form {
     @include columnFlexCenter();
   }
-
-  .search-button,
-  .book-room {
-  background-color: lighten($secondary-color, 20%);
-  border: none;
-  cursor: pointer;
-  font-family: $primary-font;
-  font-size: .5em;
-  margin: .5em;
-  padding: .25em;
-  transition: background-color .25s linear;
-  width: 50%;
-
-  &:hover {
-    background-color: $primary-color;
-    transition: background-color .25s linear;
-  }
-}
-
-  .book-room {
-    font-size: 1em;
-  }
-
+  
   .available-rooms-list {
     display: flex;
     flex-flow: row wrap;
@@ -100,7 +78,7 @@
     overflow: scroll;
     width: 100%;
   }
-
+  
   .room-listing {
     border: .25em solid $primary-color;
     font-size: .5em;
@@ -108,11 +86,51 @@
     padding: 1em;
     width: 44%;
   }
-
+  
   .no-rooms {
     font-size: 1em;
     width: 100%;
   }
+}
+
+.search-button,
+.book-room,
+.search-users-button,
+.manager-reservation-button {
+background-color: lighten($secondary-color, 20%);
+border: none;
+cursor: pointer;
+font-family: $primary-font;
+font-size: .5em;
+margin: .5em;
+padding: .25em;
+transition: background-color .25s linear;
+width: 50%;
+
+  &:hover {
+    background-color: $primary-color;
+    transition: background-color .25s linear;
+  }
+}
+
+.book-room {
+  font-size: 1em;
+}
+
+.manager-reservation-button {
+  font-size: 1em;
+  width: 100%;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.search-users-button {
+  width: 45%;
+  margin: 0;
 }
 
 .right-dashboard-container {
@@ -122,5 +140,37 @@
 
   .manager-search {
     @include columnFlexCenter();
+    margin: .5em 0;
   }
+}
+
+.manager-user-bookings {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  width: 100%;
+
+  .past-bookings,
+  .current-bookings {
+    border: .25em solid $primary-color;
+    font-size: .75em;
+    height: 44vh;
+    margin: .25em;
+    overflow: scroll;
+    width: 45%;
+
+    h3 {
+      margin: .25em;
+    }
+  }
+}
+
+.booking {
+  height: 35vh;
+}
+
+.delete-reservation {
+  cursor: pointer;
+  margin: .25em;
+  width: 20%;
 }
