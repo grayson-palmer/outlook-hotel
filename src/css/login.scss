@@ -20,10 +20,6 @@
   }
 }
 
-// .login-container {
-//   display: flex;
-// }
-
 .login-form {
   @include columnFlexCenter();
   font-size: .75em;
@@ -58,4 +54,3 @@
     transition: background-color .25s linear;
   }
 }
-

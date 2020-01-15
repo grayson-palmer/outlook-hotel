@@ -9,6 +9,25 @@ class User {
 
   makeReservation(booking) {
     this.allReservations.push(booking);
+    this.pushReservation(booking);
+  }
+
+  pushReservation(booking) {
+    fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        'userID': booking.userID,
+        'date': booking.date,
+        'roomNumber': parseInt(booking.roomNumber)
+      })
+    }).then(() => {
+      console.log(`${booking.roomNumber} is booked`);
+    }).catch(() => {
+      console.log('Failed to book room');
+    })
   }
 
   findReservations(bookings) {
@@ -26,7 +45,5 @@ class User {
     this.allReservations.sort((a, b) => b.numDate - a.numDate);
   }
 }
-
-
 
 export default User;
