@@ -1,5 +1,4 @@
 .dashboard {
-  // display: grid;
   display: none;
   grid-template-columns: 90px 1fr 2fr 1fr 90px;
   grid-template-rows: 12vh 10vh 65vh 13vh;
@@ -61,9 +60,30 @@
   grid-row: 3;
   width: 100%;
   
+  .book-room-conatainer {
+    @include columnFlexCenter();
+  }
+
   .book-room-form {
     @include columnFlexCenter();
   }
+
+  .search-button {
+  background-color: lighten($secondary-color, 20%);
+  border: none;
+  cursor: pointer;
+  font-family: $primary-font;
+  font-size: .5em;
+  margin: .5em;
+  padding: .25em;
+  transition: background-color .25s linear;
+  width: 50%;
+  
+  &:hover {
+    background-color: $primary-color;
+    transition: background-color .25s linear;
+  }
+}
 
   .available-rooms-list {
     display: flex;
@@ -72,6 +92,7 @@
     justify-content: flex-start;
     margin: .25em;
     overflow: scroll;
+    width: 100%;
   }
 
   .room-listing {
