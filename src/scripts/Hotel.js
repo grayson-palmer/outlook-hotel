@@ -64,7 +64,9 @@ class Hotel {
         let roomMatch = this.rooms.find(room => {
           return booking.roomNumber === room.roomNumber;
         })
-        this.sales += roomMatch.costPerNight;
+        if(roomMatch) {
+          this.sales = this.sales + roomMatch.costPerNight;
+        }
       }
     })
     this.sales = this.sales.toLocaleString("en-US", {style:"currency", currency:"USD"});
