@@ -1,4 +1,3 @@
-import $ from 'jQuery';
 import moment from 'moment';
 
 class Hotel {
@@ -8,7 +7,6 @@ class Hotel {
     this.roomTypes = [];
     this.bookings = [];
     this.currentDate = '';
-    this.manager = 'manager';
     this.sales = 0;
   }
 
@@ -72,6 +70,5 @@ class Hotel {
     this.sales = this.sales.toLocaleString("en-US", {style:"currency", currency:"USD"});
   }
 }
-
 
 export default Hotel;
