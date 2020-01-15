@@ -79,28 +79,28 @@ describe('Hotel Class', function() {
       hotel.loadBookings(bookingData);
       hotel.loadRooms(roomData);
       hotel.loadGuests(userData);
-      hotel.calculateDailyRevenueFromRooms();
     })
-
+    
     it('should return a list of all room types', function() {
       expect(hotel.findRoomTypes()).to.deep.equal([ 'residential suite', 'suite', 'single room', 'junior suite' ])
     })
-
+    
     it('should modify the array to proper casing', function() {
       expect(hotel.changeRoomTypeCase()).to.deep.equal([ 'Residential Suite', 'Suite', 'Single Room', 'Junior Suite' ])
     })
 
     it('should calculate the percentage of available rooms', function() {
       let percentage = hotel.calculatePercentageRoomsBooked();
-      expect(percentage).to.equal(98);
+      expect(percentage).to.equal(76);
     })
-
+    
     it('should calculate the revenue for todays bookings', function() {
+      hotel.calculateDailyRevenueFromRooms();
       expect(hotel.sales).to.equal('$6,408.65');
     })
 
     it('should return a list of available rooms', function() {
-      let availableRooms = hotel.findAvailableRooms();
+      let availableRooms = hotel.findAvailableRooms(hotel.currentDate);
       expect(availableRooms.length).to.equal(6);
     })
   })
