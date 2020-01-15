@@ -1,5 +1,11 @@
 import chai from 'chai';
+import spies from 'chai-spies';
+
+chai.use(spies);
+
 const expect = chai.expect;
+const should = chai.should();
+
 
 import User from '../src/scripts/User';
 import userData from '../src/mock-data/users-data.js';
@@ -56,9 +62,15 @@ describe('User Class', function() {
       user.findReservations(bookingData);
     })
     
-    it('should be able to make a new booking', function() {
+    it('should be able to make a new booking and post it to the API', function() {
+      let spy = chai.spy.on(user, 'pushReservation', returns => 'has run');
       expect(user.allReservations.length).to.deep.equal(25);
-      user.makeReservation(bookingData[0]);
+      user.makeReservation({
+        userID: user.id,
+        date: '2020/11/15',
+        roomNumber: 1
+      });
+      expect(spy).to.have.been.called();
       expect(user.allReservations.length).to.deep.equal(26);
     })
 
