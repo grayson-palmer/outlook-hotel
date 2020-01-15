@@ -13,7 +13,7 @@ const domUpdates = {
       this.customerDashboardHeader(currentUser);
       this.customerDashboardPastBookings(currentUser, hotel.currentDate);
       this.customerDashboardCurrentBookings(currentUser, hotel.currentDate);
-      this.customerDashboardAvailableRooms(hotel, hotel.currentDate);
+      this.customerDashboardAvailableRooms(hotel, hotel.currentDate, currentUser);
     } else {
       $('.login-container').fadeOut(500);
       $('.dashboard')
@@ -52,20 +52,34 @@ const domUpdates = {
     })
   },
 
-  customerDashboardAvailableRooms(hotel, date) {
+  customerDashboardAvailableRooms(hotel, date, currentUser) {
     let availableRooms = hotel.findAvailableRooms(date);
-    availableRooms.map(room => {
-      $('.available-rooms-list').append(`
-        <div class="room-listing">
-          <p>Room Number: ${room.roomNumber}</p>
-          <p>Room Type: ${room.roomType.toUpperCase()}</p>
-          <p>Number of Beds: ${room.numBeds}</p>
-          <p>Bed Size: ${room.bedSize.toUpperCase()}</p>
-          <p>Bidet: ${room.bidet}</p>
-          <p>Cost Per Night: ${room.costPerNight.toLocaleString("en-US", {style:"currency", currency:"USD"})}</p>
-        </div>
-      `)
-    })
+    if (availableRooms !== undefined) {
+      availableRooms.map(room => {
+        $('.available-rooms-list').append(`
+          <div class="room-listing" data-id="${room.roomNumber}">
+            <p>Room Number: ${room.roomNumber}</p>
+            <p>Room Type: ${room.roomType.toUpperCase()}</p>
+            <p>Number of Beds: ${room.numBeds}</p>
+            <p>Bed Size: ${room.bedSize.toUpperCase()}</p>
+            <p>Bidet: ${room.bidet}</p>
+            <p>Cost Per Night: ${room.costPerNight.toLocaleString("en-US", {style:"currency", currency:"USD"})}</p>
+            <button type="button" class="book-room" id="${room.roomNumber}">Book Room</button>
+          </div>
+        `)
+      })
+    } else {
+      $('.available-rooms-list').html(`<p class="no-rooms">We would like to offer our most sincere apologies, but it appears we do not have any openings for ${date}.</p>`)
+    }
+    $('.book-room').click(function() {
+      currentUser.makeReservation({
+        userID: currentUser.id,
+        date: date,
+        roomNumber: event.target.id
+      });
+      event.target.parentNode.remove();
+      window.alert(`Your reservation has been made for Room Number ${event.target.id} on ${date}`);
+    });
   },
 
   customerDashboardFinancialInfo(total) {
@@ -91,7 +105,7 @@ const domUpdates = {
     `)
   },
 
-  //manager make reservation
+  //manager user search
 
   managerDashboardDailyRevenue(hotel) {
     hotel.calculateDailyRevenueFromRooms();
@@ -100,23 +114,37 @@ const domUpdates = {
     `)
   },
 
-  roomSearchUpdateDom(date, type, hotel) {
+  roomSearchUpdateDom(date, type, hotel, currentUser) {
     let availableRooms = hotel.findAvailableRooms(date);
     if (type === 'all') {type = ['residential suite', 'suite', 'single room', 'junior suite']};
     let filteredRooms = availableRooms.filter(room => type.includes(room.roomType));
     $('.available-rooms-list').children().remove();
-    filteredRooms.map(room => {
-      $('.available-rooms-list').append(`
-        <div class="room-listing">
-          <p>Room Number: ${room.roomNumber}</p>
-          <p>Room Type: ${room.roomType.toUpperCase()}</p>
-          <p>Number of Beds: ${room.numBeds}</p>
-          <p>Bed Size: ${room.bedSize.toUpperCase()}</p>
-          <p>Bidet: ${room.bidet}</p>
-          <p>Cost Per Night: ${room.costPerNight.toLocaleString("en-US", {style:"currency", currency:"USD"})}</p>
-        </div>
-      `)
-    })
+    if (filteredRooms !== undefined) {
+      filteredRooms.map(room => {
+        $('.available-rooms-list').append(`
+          <div class="room-listing" data-id="${room.roomNumber}">
+            <p>Room Number: ${room.roomNumber}</p>
+            <p>Room Type: ${room.roomType.toUpperCase()}</p>
+            <p>Number of Beds: ${room.numBeds}</p>
+            <p>Bed Size: ${room.bedSize.toUpperCase()}</p>
+            <p>Bidet: ${room.bidet}</p>
+            <p>Cost Per Night: ${room.costPerNight.toLocaleString("en-US", {style:"currency", currency:"USD"})}</p>
+            <button type="button" class="book-room" id="${room.roomNumber}">Book Room</button>
+          </div>
+        `)
+      })
+    } else {
+      $('.available-rooms-list').html(`<p class="no-rooms">We would like to offer our most sincere apologies, but it appears we do not have any openings for ${date}.</p>`)
+    }
+    $('.book-room').click(function() {
+      currentUser.makeReservation({
+        userID: currentUser.id,
+        date: date,
+        roomNumber: event.target.id
+      });
+      event.target.parentNode.remove();
+      window.alert(`Your reservation has been made for Room Number ${event.target.id} on ${date}`);
+    });
   }
 }
 
