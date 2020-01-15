@@ -7,6 +7,7 @@ class Hotel {
     this.roomTypes = [];
     this.bookings = [];
     this.currentDate = '';
+    this.manager;
     this.sales = 0;
   }
 
