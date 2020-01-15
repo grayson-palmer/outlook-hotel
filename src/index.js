@@ -101,7 +101,7 @@ const calculateCustomerAmountSpent = () => {
 
 const searchAvailableRooms = () => {
   if ($('#date').val()) {
-    domUpdates.roomSearchUpdateDom($('#date').val().replace('-', '/').replace('-', '/'), $('#room-type').val(), hotel);
+    domUpdates.roomSearchUpdateDom($('#date').val().replace('-', '/').replace('-', '/'), $('#room-type').val(), hotel, currentUser);
   }
 }
 
