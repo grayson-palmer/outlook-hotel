@@ -111,6 +111,11 @@ const domUpdates = {
     hotel.calculateDailyRevenueFromRooms();
     $('.financial').html(`
       <h3>Revenue for the Day: <span class="customer-amt-spent">${hotel.sales.toLocaleString("en-US", {style:"currency", currency:"USD"})}</span></h3>
+      <div class="manager-search">
+        <p>User Search:</p>
+        <input type="text" class="search-users">
+        <button type="button" class="search-users-button">Search Users</button>
+      </div>
     `)
   },
 
