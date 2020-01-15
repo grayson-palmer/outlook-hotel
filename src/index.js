@@ -12,6 +12,7 @@ import Hotel from './scripts/Hotel';
 import Room from './scripts/Room';
 import User from './scripts/User';
 import domUpdates from './scripts/domUpdates';
+import Manager from './scripts/Manager';
 
 
 let hotel;
@@ -24,6 +25,7 @@ $(document).ready(() => {
   getGuests();
   getBookings();
   getRooms();
+  hotel.manager = new Manager();
 });
 
 const getGuests = () => {
@@ -107,3 +109,4 @@ const searchAvailableRooms = () => {
 
 $('.submit-button').click(checkLogin);
 $('.search-button').click(searchAvailableRooms);
+
