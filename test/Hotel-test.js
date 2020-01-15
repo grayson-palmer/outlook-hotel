@@ -91,17 +91,17 @@ describe('Hotel Class', function() {
 
     it('should calculate the percentage of available rooms', function() {
       let percentage = hotel.calculatePercentageRoomsBooked();
-      expect(percentage).to.equal(76);
+      expect(percentage).to.equal(80);
     })
     
     it('should calculate the revenue for todays bookings', function() {
       hotel.calculateDailyRevenueFromRooms();
-      expect(hotel.sales).to.equal('$6,408.65');
+      expect(hotel.sales).to.equal('$7,090.16');
     })
 
     it('should return a list of available rooms', function() {
       let availableRooms = hotel.findAvailableRooms(hotel.currentDate);
-      expect(availableRooms.length).to.equal(6);
+      expect(availableRooms.length).to.equal(5);
     })
   })
 });
